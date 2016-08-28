@@ -6,7 +6,6 @@
   July 3 2011 - fixed elapsedSecsThisWeek macro (thanks Vincent Valdy for this)
               - fixed  daysToTime_t macro (thanks maniacbug)
 */     
-
 #ifndef _Time_h
 #ifdef __cplusplus
 #define _Time_h
@@ -98,7 +97,7 @@ typedef time_t(*getExternalTime)();
 /*  time and date functions   */
 int     hour();            // the hour now 
 int     hour(time_t t);    // the hour for the given time
-int     hourFormat12();    // the hour now in 12 hour format
+int     hourFormat12();    // the hour now in 12 hour format 
 int     hourFormat12(time_t t); // the hour for the given time in 12 hour format
 uint8_t isAM();            // returns true if time now is AM
 uint8_t isAM(time_t t);    // returns true the given time is AM
@@ -116,12 +115,14 @@ int     month();           // the month now  (Jan is month 1)
 int     month(time_t t);   // the month for the given time
 int     year();            // the full four digit year: (2009, 2010 etc) 
 int     year(time_t t);    // the year for the given time
+unsigned long precmillis();
 
 time_t now();              // return the current time as seconds since Jan 1 1970 
 void    setTime(time_t t);
 void    setTime(int hr,int min,int sec,int day, int month, int yr);
 void    adjustTime(long adjustment);
-
+void 	resetTimer();
+int 	initTimer(int Timer,int Source,int intPin2);
 /* date strings */ 
 #define dt_MAX_STRING_LEN 9 // length of longest date string (excluding terminating null)
 char* monthStr(uint8_t month);
