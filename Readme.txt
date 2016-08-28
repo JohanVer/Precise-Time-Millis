@@ -6,6 +6,7 @@ It Adds a free to choose Interrupt to Update seconds from GPS-PPS or DS3231 Seco
 
 3 Chooseable Timers to Counts Millis synced to SecondImpulse.
 3 Chooseable Inputs to Count Timers, T0,T1, InternalClock (T0 is choose with my T2 Millis Arduino Variant to switch Timer0 and Timer2 in Core)
+3 Chooseable Interrupts, ICP1,INT0,INT1
 Calibration Function to Calibrate Millis Factor to Precise Timing eg 15.9599999 Crystal precision.
 
 So we can measure over hours in Millisecond Precision with Round about 32768Hz 1-2ppm.
