@@ -2,6 +2,8 @@ Readme file for Arduino Time Library
 
 This is a Fork from PaulStoffregens Time Library
 
+All Functions in Progress!!!!!
+
 It Adds a free to choose Interrupt to Update seconds from GPS-PPS or DS3231 Secondpulse.
 
 3 Chooseable Timers to Counts Millis synced to SecondImpulse.
