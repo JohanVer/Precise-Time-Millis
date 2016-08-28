@@ -10,7 +10,7 @@ Calibration Function to Calibrate Millis Factor to Precise Timing eg 15.9599999 
 
 So we can measure over hours in Millisecond Precision with Round about 32768Hz 1-2ppm.
 
-To Choose the Timer you should Edit Time.ccp Line to Timer Number:
+To Choose the Timer Edit Time.ccp Line to Timer Number:
 Example Timer 1:
 #Define TIMERVAR 1  
 
