@@ -10,6 +10,10 @@ Calibration Function to Calibrate Millis Factor to Precise Timing eg 15.9599999 
 
 So we can measure over hours in Millisecond Precision with Round about 32768Hz 1-2ppm.
 
+To Choose the Timer you should Edit Time.ccp Line to Timer Number:
+Example Timer 1:
+#Define TIMERVAR 1  
+
 Codeexample:
 Setup(): 
 initTimer(1,1,2); //init Timer1, T1,INT0(Pin2) DS3231 SQWPin 1Hz->INT0, 32khzPin->T1
