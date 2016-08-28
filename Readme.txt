@@ -28,7 +28,7 @@ isAM();            // returns true if time now is AM
 isPM();            // returns true if time now is PM
 
 now();             // returns the current time as seconds since Jan 1 1970 
-
+ 
 The time and date functions can take an optional parameter for the time. This prevents
 errors if the time rolls over between elements. For example, if a new minute begins
 between getting the minute and second, the values will be inconsistent. Using the 
