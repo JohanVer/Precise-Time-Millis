@@ -52,6 +52,7 @@ int Sourcevar = 0;
 int intPinvar=0;
 int intPin = 0;
 int ovffac=0;
+uint8_t calibratenow =0;
 int initTimer(int Timer, int Source, int intPin) {
 Timervar=Timer;
 Sourcevar=Source;
@@ -206,6 +207,18 @@ clocks=TCNT2;
 void resetTimer() {
   cli();
   sysTime++;
+if(calibratenow==1)
+if(Timervar==1)
+{
+precF_CPU=timemillisoverflows*30000+TCNT1;
+}else
+if(Timervar==0{
+precF_CPU=timemillisoverflows*256+TCNT0;	
+}else 
+if(Timervar==2{
+precF_CPU=timemillisoverflows*256+TCNT2;	
+}
+
   if(Timervar==0)
 	   TCNT0 = 0;
    else   if(Timervar==1)
