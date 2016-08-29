@@ -10,7 +10,11 @@ That Means the Original Time Library Calculate the Theoretical Time From SystemM
 
 It Adds a free to choose Interrupt to Update Seconds from GPS-PPS or DS3231 1Hz Squarewave.
 
-3 Chooseable Timers to Count Millis synced to SecondImpulse.
+The Theory 1, GPS Based PPS Signal accuracy long time compensated 30ns Drift
+The Theory 2, DS3231 TCXO, Temperature compensated Crystal 1-3ppm Longtime Drift.
+The Theory 3, Millis aligned between two PPS Signals and synchronized with 32768hz/internal Clock for same Accuracy from Theory1/2.
+
+3 Chooseable Timers to Count Millis synced to PPS(PulsPerSecond).
 3 Chooseable Inputs to Count Timers, T0,T1, InternalClock 
 (Arduino Reserved T0,choose with my T2 Millis Arduino Variant to switch Timer0 and Timer2 in Core)
 3 Chooseable Interrupts, ICP1,INT0,INT1, or own Event with ResetTimer() Function for PPS 
