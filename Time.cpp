@@ -177,7 +177,7 @@ ISR(TIMER0_OVF_vect)
 {
     timemillisoverflows++;
 }
-#else
+#elif TIMERVAR==2
 ISR(TIMER2_OVF_vect)
 {
     timemillisoverflows++;
@@ -208,6 +208,7 @@ void resetTimer() {
   cli();
   sysTime++;
 if(calibratenow==1)
+{
 if(Timervar==1)
 {
 precF_CPU=timemillisoverflows*30000+TCNT1;
@@ -218,7 +219,9 @@ precF_CPU=timemillisoverflows*256+TCNT0;
 if(Timervar==2{
 precF_CPU=timemillisoverflows*256+TCNT2;	
 }
-
+calibratenow=0;
+	
+}
   if(Timervar==0)
 	   TCNT0 = 0;
    else   if(Timervar==1)
@@ -228,6 +231,11 @@ precF_CPU=timemillisoverflows*256+TCNT2;
 	   
   timemillisoverflows = 0;
   sei();
+}
+
+void CalibrateNow()
+{
+calibratenow=1;	
 }
 static tmElements_t tm;          // a cache of time elements
 static time_t cacheTime;   // the time the cache was updated
