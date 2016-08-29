@@ -32,7 +32,7 @@ Loop() Overwiew:
  Serial.println(recalculateF_CPU()); 
  Serial.println(precmillis());
  Serial.println( myprecmillis - mymillis - sync);
- 
+  
 Output: (Good Measurement, The Coremillis Drifts 2-4ms/Second) The Real Delay(1000) maybe ca. 1060ms
 New Calculation Frequency for PrecMillis()
 11993117
