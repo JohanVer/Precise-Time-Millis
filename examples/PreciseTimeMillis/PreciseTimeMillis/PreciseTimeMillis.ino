@@ -34,9 +34,12 @@ int myloop = 0;
 
 void loop()
 {
-      long mymillis = millis();
+  // Get Both Millis
+    long mymillis = millis();
     long myprecmillis = precmillis();
+  //this delay means 1060ms Realtime
   delay(1000);
+  
   if (myloop == 2)
   {
     if (sync == 0)
@@ -47,12 +50,14 @@ void loop()
   }
   else if (myloop == 10)
   {
+    //Update and Draws Real Frequency, best Result with Good GPS PPS Signal with 30ns Drift.
     Serial.println("New Calculation Frequency for PrecMillis()");
     Serial.println(recalculateF_CPU());
   } else if (myloop > 10)
   {
 
     if (sync != 0) {
+      //Draws the Drift of Milliseconds from Millis  
       Serial.println(precmillis());
       Serial.println( myprecmillis - mymillis - sync);
     }
