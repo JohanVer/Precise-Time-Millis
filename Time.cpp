@@ -150,12 +150,15 @@ intPinvar=intPin;
 
 }
 
-#if  TIMERVAR==1
+
+#if  Pin8==1
 ISR(TIMER1_CAPT_vect)          // timer compare interrupt service routine
 {
 resetTimer();
 }
+#endif
 
+#if  TIMERVAR==1
 ISR(TIMER1_COMPA_vect)          // timer compare interrupt service routine
 {
   sei();
@@ -199,6 +202,7 @@ clocks=TCNT2;
   x+=sysTime*1000L;
   return x;
 }
+
 void resetTimer() {
   cli();
   sysTime++;
