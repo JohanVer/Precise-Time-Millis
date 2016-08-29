@@ -108,7 +108,7 @@ intPinvar=intPin;
 
     TIMSK1 |= (1 << OCIE1A);
 	 OCR1A = 30000-1; //50 Overflows=1Sekunde
-	 millifracs= 1000.0f/(double)(F_CPU/256);
+	 millifracs= 1000.0f/(double)(precF_CPU/256);
       ovffac=30000;
 	  if (intPin == 8){
       TCCR1B |= (1 << ICNC1);
