@@ -1,6 +1,7 @@
 /*
    PreciseTiming.pde
    example code illustrating Time library with Real Time Clock.
+
 */
 #include <TimeLib.h>
 
@@ -30,15 +31,18 @@ long lastprecmillis = 0;
 long lastmillis = 0;
 int sync = 0;
 int myloop = 0;
-
+long mylastmillis=0;
+long mylastcoremillis=0;
 void loop()
 {
   // Get Both Millis
-  long mymillis = millis();
-  long myprecmillis = precmillis();
+    long mymillis = millis();
+    long myprecmillis = precmillis();
   //this delay means 1060ms Realtime
-  delay(1000);
-
+  if(myprecmillis>=mylastmillis+1000)
+  {
+    mylastmillis=myprecmillis;
+    
   if (myloop == 2)
   {
     if (sync == 0)
@@ -54,12 +58,16 @@ void loop()
     Serial.println(recalculateF_CPU());
   } else if (myloop > 10)
   {
+
     if (sync != 0) {
-      //Draws the Drift of Milliseconds from Millis
-      Serial.println(precmillis());
-      Serial.println( myprecmillis - mymillis - sync);
+      //Draws the Drift of Milliseconds from Millis  
+      Serial.println(myprecmillis);
+      Serial.println(mymillis-mylastcoremillis);
+      mylastcoremillis=mymillis;
     }
   }
-  if (myloop < 11)
-    myloop++;
+if(myloop<11)
+  myloop++;
 }
+}
+

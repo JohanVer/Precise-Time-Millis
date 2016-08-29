@@ -2,7 +2,11 @@ Readme file for Arduino Time Library
 
 This is a Fork from PaulStoffregens Time Library
 
-All Functions in Progress!!!!!
+Whats the Difference?
+
+The Library Counts the Internal "Time Library" Seconds with PPS(PulsPerSecond) from DS3231 or GPS.
+That Means the Original Time Library Calculate the Theoretical Time From SystemMillis affected by Clock Accuracy.
+
 
 It Adds a free to choose Interrupt to Update Seconds from GPS-PPS or DS3231 1Hz Squarewave.
 
