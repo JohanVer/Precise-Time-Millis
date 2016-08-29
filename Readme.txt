@@ -13,6 +13,7 @@ It Adds a free to choose Interrupt to Update Seconds from GPS-PPS or DS3231 1Hz 
 
 Calibration Function to Calibrate Millis Factor to Precise Timing eg 15.9599999 Crystal precision.
 
+
 So we can measure over hours in Millisecond Precision with Round about 32768Hz 1-2ppm.
 
 To Choose the Timer Edit Time.ccp Line to Timer Number:
@@ -34,20 +35,30 @@ Loop():
   
   
 Output: (Good Measurement, The Coremillis Drifts 4ms/Second) The Real Delay(1000) maybe ca. 1070ms
-4
-4436
-8
-5503
-13
-6570
-16
-7638
-21
-8705
-26
-9772
-29
-10839
+New Calculation Frequency for PrecMillis()
+11993117
+14591
+39
+15658
+42
+16725
+45
+17793
+50
+18860
+55
+19927
+58
+20995
+63
+22061
+65
+23129
+71
+24196
+75
+25263
+
 
 
 

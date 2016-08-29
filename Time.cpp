@@ -233,13 +233,13 @@ calibratenow=0;
   timemillisoverflows = 0;
   sei();
 }
-
+ 
 void CalibrateNow()
 {
 calibratenow=1;	
 }
 
-void recalculateF_CPU()
+unsigned long recalculateF_CPU()
 {
 if(Sourcevar==0)		
 {
@@ -247,14 +247,15 @@ if (Timervar==1)
 	millifracs= 1000.0f/(double)(precF_CPU/256);
 	else 
 	1000.0f/(double)(precF_CPU/256L);
-	}
-}else{
+}
+else
+{
 	if (Timervar==2)		
 	millifracs= 1000.0f/(double)(precF_CPU/256);
 	else 
 	 millifracs = 1000.0f/32768;
-}
-	
+}unsigned long temp= prec_F_CPU;
+return temp;	
 }
 static tmElements_t tm;          // a cache of time elements
 static time_t cacheTime;   // the time the cache was updated

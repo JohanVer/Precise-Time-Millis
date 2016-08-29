@@ -12,6 +12,7 @@
 
 void setup()  {
   Serial.begin(115200);
+  Serial.println(recalculateF_CPU());
   //initTimer(int Timer, in Source, int InterruptPin);
   //Timer= 0,1 (Timer0, Timer1)
   //Source= 0 MainClock, 1 InputTrigger T0/T1
@@ -24,23 +25,39 @@ void setup()  {
   Serial.println(tmpcheck);
   double millifracs = (double)1000.0f / tmpcheck;
 
-
   delay(2000);
 }
 int lastprecmillis = 0;
 int lastmillis = 0;
 int sync = 0;
+int myloop = 0;
+
 void loop()
 {
-
-  long mymillis = millis();
-  long myprecmillis = precmillis();
-  Serial.println(precmillis());
-  Serial.println( myprecmillis - mymillis - sync);
-
-
+      long mymillis = millis();
+    long myprecmillis = precmillis();
   delay(1000);
-  if (sync == 0)
-    sync = myprecmillis - mymillis;
+  if (myloop == 2)
+  {
+    if (sync == 0)
+      sync = myprecmillis - mymillis;
+  } else if (myloop == 5)
+  {
+    CalibrateNow();
+  }
+  else if (myloop == 10)
+  {
+    Serial.println("New Calculation Frequency for PrecMillis()");
+    Serial.println(recalculateF_CPU());
+  } else if (myloop > 10)
+  {
+
+    if (sync != 0) {
+      Serial.println(precmillis());
+      Serial.println( myprecmillis - mymillis - sync);
+    }
+  }
+
+  myloop++;
 }
 
