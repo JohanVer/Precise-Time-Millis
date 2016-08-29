@@ -214,10 +214,10 @@ if(Timervar==1)
 {
 precF_CPU=timemillisoverflows*30000+TCNT1;
 }else
-if(Timervar==0{
+if(Timervar==0){
 precF_CPU=timemillisoverflows*256+TCNT0;	
 }else 
-if(Timervar==2{
+if(Timervar==2){
 precF_CPU=timemillisoverflows*256+TCNT2;	
 }
 calibratenow=0;
