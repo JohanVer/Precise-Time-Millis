@@ -159,32 +159,24 @@ resetTimer();
 ISR(TIMER1_COMPA_vect)          // timer compare interrupt service routine
 {
   sei();
-  if (Sourcevar == 1)
+ if (Sourcevar == 1)
   TCNT1 = 0;
-else 
-{
-	timemillisoverflows++;
-TCNT1=0;
-	} 
+ else 
+ {
+  timemillisoverflows++;
+  TCNT1=0;
+ } 
  cli();
 }
 #elif TIMERVAR==0
 ISR(TIMER0_OVF_vect)
 {
-//  if (timemillisoverflows < 250)
     timemillisoverflows++;
- // else
-   // timemillisoverflows = 0;
-  //TCNT0=0;
 }
 #else
 ISR(TIMER2_OVF_vect)
 {
-//  if (timemillisoverflows < 250)
     timemillisoverflows++;
- // else
-   // timemillisoverflows = 0;
-  //TCNT0=0;
 }
 #endif
 //double millifracs=0.030517578125;
@@ -214,6 +206,9 @@ void resetTimer() {
 	   TCNT0 = 0;
    else   if(Timervar==1)
 	   TCNT1 = 0;
+   else   if(Timervar==2)
+	   TCNT2=0;
+	   
   timemillisoverflows = 0;
   sei();
 }
