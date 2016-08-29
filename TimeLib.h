@@ -125,6 +125,7 @@ int 	initTimer(int Timer,int Source,int intPin2);
 unsigned long precmillis();
 void 	resetTimer();
 void CalibrateNow();
+void recalculateF_CPU()
 /* date strings */ 
 #define dt_MAX_STRING_LEN 9 // length of longest date string (excluding terminating null)
 char* monthStr(uint8_t month);

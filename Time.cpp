@@ -238,6 +238,24 @@ void CalibrateNow()
 {
 calibratenow=1;	
 }
+
+void recalculateF_CPU()
+{
+if(Sourcevar==0)		
+{
+if (Timervar==1)		
+	millifracs= 1000.0f/(double)(precF_CPU/256);
+	else 
+	1000.0f/(double)(precF_CPU/256L);
+	}
+}else{
+	if (Timervar==2)		
+	millifracs= 1000.0f/(double)(precF_CPU/256);
+	else 
+	 millifracs = 1000.0f/32768;
+}
+	
+}
 static tmElements_t tm;          // a cache of time elements
 static time_t cacheTime;   // the time the cache was updated
 static uint32_t syncInterval = 300;  // time sync will be attempted after this many seconds
