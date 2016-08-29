@@ -18,9 +18,9 @@ So we can measure over hours in Millisecond Precision with Round about 32768Hz 1
 
 To Choose the Timer Edit Time.ccp Line to Timer Number:
 Example Timer 1:
-#Define TIMERVAR 1  
+Define TIMERVAR 1  
 Same to Reserve Pin D8 for T1:
-#Define Pin8 1
+Define Pin8 1
 
 Codeexample:
 Setup(): 
