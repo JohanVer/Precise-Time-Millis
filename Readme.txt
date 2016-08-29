@@ -10,9 +10,9 @@ That Means the Original Time Library Calculate the Theoretical Time From SystemM
 
 It Adds a free to choose Interrupt to Update Seconds from GPS-PPS or DS3231 1Hz Squarewave.
 
-The Theory 1, GPS Based PPS Signal accuracy long time compensated 30ns Drift
-The Theory 2, DS3231 TCXO, Temperature compensated Crystal 1-3ppm Longtime Drift.
-The Theory 3, Millis aligned between two PPS Signals and synchronized with 32768hz or Internal Clock for same Accuracy from Theory1/2.
+The Theory 1, GPS Based PPS Signal accuracy, long time compensated 30ns Drift
+The Theory 2, DS3231 TCXO, Temperature compensated Crystal, 1-3ppm Longtime Drift.
+The Theory 3, Millis aligned between two PPS Signals and synchronized with 32768hz or Internal Clock for same Accuracy as Theory1/2.
 
 3 Chooseable Timers to Count Millis synced to PPS(PulsPerSecond).
 3 Chooseable Inputs to Count Timers, T0,T1, InternalClock 
