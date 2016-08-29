@@ -26,7 +26,7 @@
                      add examples to DS1307RTC library.
   1.4  5  Sep 2014 - compatibility with Arduino 1.5.7
 */
-#define TIMERVAR 1
+#define TIMERVAR 2
 #define Pin8 0
 #if ARDUINO >= 100
 #include <Arduino.h>
