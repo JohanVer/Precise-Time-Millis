@@ -2,7 +2,7 @@ Readme file for Arduino Time Library
 
 This is a Fork from PaulStoffregens Time Library
 
-All Functions in Progress!!!!!
+Most Timerconfigurations Tested.
 
 It Adds a free to choose Interrupt to Update Seconds from GPS-PPS or DS3231 1Hz Squarewave.
 
@@ -18,34 +18,34 @@ So we can measure over hours in Millisecond Precision with Round about 32768Hz 1
 
 To Choose the Timer Edit Time.ccp Line to Timer Number:
 Example Timer 1:
-Define TIMERVAR 1  
+>Define TIMERVAR 1  
 Same to Reserve Pin D8 for T1:
-Define Pin8 1
+>Define Pin8 1
 
 Codeexample:
 Setup(): 
-initTimer(2,0,2); //Standard Settings init (Timer2, Internal clock,INT0(Pin2) DS3231 SQWPin 1Hz->INT0
+>initTimer(2,0,2); //Standard Settings init (Timer2, Internal clock,INT0(Pin2) DS3231 SQWPin 1Hz->INT0
 
 Loop() Overwiew:  
- CalibrateNow();
- Serial.println("New Calculation Frequency for PrecMillis()");
- Serial.println(recalculateF_CPU()); 
- Serial.println(precmillis());
- Serial.println( myprecmillis - mymillis - sync);
+> CalibrateNow();
+> Serial.println("New Calculation Frequency for PrecMillis()");
+> Serial.println(recalculateF_CPU()); 
+> Serial.println(precmillis());
+> Serial.println( myprecmillis - mymillis - sync);
   
 Output: (Good Measurement, The Coremillis Drifts 2-4ms/Second) The Real Delay(1000) maybe ca. 1060ms
-New Calculation Frequency for PrecMillis()
-11993117
+>New Calculation Frequency for PrecMillis()
+>11993117
 14591
 39
 15658
-42
+>42
 16725
-45
+>45
 17793
-50
+>50
 18860
-55
+>55
 19927
 58
 20995
