@@ -4,30 +4,29 @@ This is a Fork from PaulStoffregens Time Library
 
 Whats the Difference?
 
-The Library Counts the Internal "Time Library" Seconds with PPS(PulsPerSecond) from DS3231 or GPS.
-That Means the Original Time Library Calculate the Theoretical Time From SystemMillis affected by Clock Accuracy.
+The Library counts the internal "Time Library" Seconds with PPS(PulsPerSecond) from DS3231 or GPS.
+That means the Original Time Library Calculate the Theoretical Time From SystemMillis affected by Clock Accuracy.
 
 
-It Adds a free to choose Interrupt to Update Seconds from GPS-PPS or DS3231 1Hz Squarewave.
+It Adds a free to choose Interrupt to update Seconds from GPS-PPS or DS3231 1Hz Squarewave.
 
 The Theory 1, GPS Based PPS Signal accuracy, long time compensated 30ns Drift
 The Theory 2, DS3231 TCXO, Temperature compensated Crystal, 1-3ppm Longtime Drift.
-The Theory 3, Millis aligned between two PPS Signals and synchronized with 32768hz or Internal Clock for same Accuracy as Theory1/2.
+The Theory 3, Millis aligned between two PPS Signals and synchronized with 32768hz or Internal Clock for same accuracy as Theory1/2.
 
-3 Chooseable Timers to Count Millis synced to PPS(PulsPerSecond).
-3 Chooseable Inputs to Count Timers, T0,T1, InternalClock 
+3 Chooseable Timers to count Millis synced to PPS(PulsPerSecond).
+3 Chooseable Inputs to count Timers, T0,T1, internal Clock 
 (Arduino Reserved T0,choose with my T2 Millis Arduino Variant to switch Timer0 and Timer2 in Core)
-3 Chooseable Interrupts, ICP1,INT0,INT1, or own Event with ResetTimer() Function for PPS 
+3 Chooseable Interrupts, ICP1,INT0,INT1, or own event with ResetTimer() Function for PPS 
 
-Calibration Function to Calibrate Millis Factor to Precise Timing eg 15.9599999 Crystal precision.
-
+Calibration Function to Calibrate Millis Factor to Precise Timing maybe 15.9599999 Crystal precision.
 
 So we can measure over hours in Millisecond Precision with Round about 32768Hz 1-2ppm.
 
 To Choose the Timer Edit Time.ccp Line to Timer Number:
 Example Timer 1:
 ```#Define TIMERVAR 1```  
-Same to Reserve Pin D8 for T1:
+Same to Reserve Pin D8 for ICP1:
 ```#Define Pin8 1```
 
 Codeexample:
@@ -41,7 +40,7 @@ Loop() Overwiew:
  Serial.println(precmillis());
  Serial.println( myprecmillis - mymillis - sync);
   
-Output: (Good Measurement, The Coremillis Drifts 2-4ms/Second) The Real Delay(1000) maybe ca. 1060ms
+Output: (Good Measurement, The Millis from Core Drifts 2-4ms/Second) The Real Delay(1000) maybe ca. 1060ms
 New Calculation Frequency for PrecMillis()
 11993117
 14591
