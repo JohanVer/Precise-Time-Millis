@@ -86,13 +86,14 @@ intPinvar=intPin;
       ovffac=256;
       sei();
     } else if (Source == 1)
-    {
+    { cli();
       TCCR0B |= (1 << CS00);    // clock
       TCCR0B |= (1 << CS01);
       TCCR0B |= (1 << CS02);
       TIMSK0 |= (1 << TOIE0);
       ovffac=256;
       millifracs = 1000.0f/32768;
+      sei();
     }
   } else if (Timer == 1) {
     cli();
