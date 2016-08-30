@@ -68,7 +68,6 @@ intPinvar=intPin;
     TCCR1B |= (1 << ICNC1);
     TIMSK1 |= (1 << ICIE1);
     sei();
-
   }
   else if (intPin == 8 && Timer == 1)
     ICPBypass = 0;
@@ -85,14 +84,14 @@ intPinvar=intPin;
       TIMSK0 |= (1 << TOIE0);
       millifracs=1000.0f/(double)(precF_CPU/256);
       ovffac=256;
-	  sei();
+      sei();
     } else if (Source == 1)
     {
       TCCR0B |= (1 << CS00);    // clock
       TCCR0B |= (1 << CS01);
       TCCR0B |= (1 << CS02);
       TIMSK0 |= (1 << TOIE0);
-	  ovffac=256;
+      ovffac=256;
       millifracs = 1000.0f/32768;
     }
   } else if (Timer == 1) {
@@ -107,28 +106,25 @@ intPinvar=intPin;
     TCCR1B |= (1 << CS12);
 
     TIMSK1 |= (1 << OCIE1A);
-	 OCR1A = 30000-1; //50 Overflows=1Sekunde
-	 millifracs= 1000.0f/(double)(precF_CPU/256);
-      ovffac=30000;
-	  if (intPin == 8){
-      TCCR1B |= (1 << ICNC1);
+    OCR1A = 30000-1; //50 Overflows=1Sekunde
+    millifracs= 1000.0f/(double)(precF_CPU/256);
+    ovffac=30000;
+    if (intPin == 8){
+    TCCR1B |= (1 << ICNC1);
     TIMSK1 |= (1 << ICIE1);
     }
 } else  if (Source == 1)
     { 
     OCR1A = ocrtmp;            // compare match register 16MHz/256/2Hz
-    //  TCCR1A |= (1 << WGM12);
-    // icp4
     TCCR1B |= (1 << CS10);    // clock
     TCCR1B |= (1 << CS11);
     TCCR1B |= (1 << CS12);
-    // TCCR1B |= (1 << WGM12);
     TIMSK1 |= (1 << OCIE1A);  // enable timer compare interrupt
-    
-	 millifracs = 1000.0f/32768;
-	if (intPin == 8){
-      TCCR1B |= (1 << ICNC1);
-    TIMSK1 |= (1 << ICIE1);
+    millifracs = 1000.0f/32768;
+    if (intPin == 8)
+    {
+    	TCCR1B |= (1 << ICNC1);
+    	TIMSK1 |= (1 << ICIE1);
     }
 	
 	}
@@ -137,7 +133,7 @@ intPinvar=intPin;
  if (Source == 0)
     { cli();
       TCCR2A = 0;
-	  TCCR2B = 0;
+      TCCR2B = 0;
       TIMSK2 = 0;
       TCCR2B |= (0 << CS00);    // clock
       TCCR2B |= (1 << CS01);
@@ -145,7 +141,7 @@ intPinvar=intPin;
       TIMSK2 |= (1 << TOIE0);
       millifracs=1000.0f/(precF_CPU/256L);
       ovffac=256;
-	  sei();
+      sei();
     }
 
   } else return 0;
@@ -190,16 +186,15 @@ unsigned long  precmillis()
 	  unsigned int clocks =0;
   cli();
 if(Timervar==0)
-  clocks = TCNT0;
+clocks = TCNT0;
 else if(Timervar==1)
-	clocks=TCNT1;
+clocks=TCNT1;
 else if(Timervar==2)
 clocks=TCNT2;	
 
   uint32_t ofv = timemillisoverflows;
   sei();
   //unsigned int x=((uint16_t)ofv*256)+clocks;
-
   long x = (((ofv * ovffac) + clocks) * millifracs) + .5;
   x+=sysTime*1000L;
   return x;
@@ -221,7 +216,6 @@ if(Timervar==2){
 precF_CPU=timemillisoverflows*256+TCNT2;	
 }
 calibratenow=0;
-	
 }
   if(Timervar==0)
 	   TCNT0 = 0;
@@ -254,7 +248,8 @@ else
 	millifracs= 1000.0f/(double)(precF_CPU/256);
 	else 
 	 millifracs = 1000.0f/32768;
-}unsigned long temp= prec_F_CPU;
+}
+unsigned long temp= prec_F_CPU;
 return temp;	
 }
 static tmElements_t tm;          // a cache of time elements
