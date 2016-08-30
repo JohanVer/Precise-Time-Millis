@@ -38,12 +38,23 @@
 static tmElements_t tm;          // a cache of time elements
 static time_t cacheTime;   // the time the cache was updated
 static uint32_t syncInterval = 300;  // time sync will be attempted after this many seconds
+static uint8_t externalSyncStatus=0;
 
 void refreshCache(time_t t) {
   if (t != cacheTime) {
     breakTime(t, tm); 
     cacheTime = t; 
   }
+}
+
+void externalSyncCmd(uint8_t Status){
+if(Status==0)
+externalSyncStatus=0;
+else if(Status==1)
+externalSyncStatus=1;
+else if(Status==2)
+sysTime++;
+	
 }
 
 int hour() { // the hour now 
@@ -249,6 +260,8 @@ time_t sysUnsyncedTime = 0; // the time sysTime unadjusted by sync
 
 time_t now() {
 	// calculate number of seconds passed since last call to now()
+if(externalSyncStatus==1)
+{
   while (millis() - prevMillis >= 1000) {
 		// millis() and prevMillis are both unsigned ints thus the subtraction will always be the absolute value of the difference
     sysTime++;
@@ -268,6 +281,7 @@ time_t now() {
       }
     }
   }  
+}else  return (time_t)sysTime;
   return (time_t)sysTime;
 }
 
