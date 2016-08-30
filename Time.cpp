@@ -182,7 +182,8 @@ ISR(TIMER2_OVF_vect)
 //double millifracs=0.030517578125;
 unsigned long  precmillis()
 {
-	  unsigned int clocks =0;
+	unsigned long tempSysTime=0;
+	unsigned int clocks =0;
   cli();
 if(Timervar==0)
 clocks = TCNT0;
@@ -190,12 +191,13 @@ else if(Timervar==1)
 clocks=TCNT1;
 else if(Timervar==2)
 clocks=TCNT2;	
-
-  uint32_t ofv = timemillisoverflows;
-  sei();
+ uint32_t ofv = timemillisoverflows;
+ tempSysTime=sysTime;
+ sei();
   //unsigned int x=((uint16_t)ofv*256)+clocks;
   long x = (((ofv * ovffac) + clocks) * millifracs) + .5;
-  x+=sysTime*1000L;
+  
+  x+=tempSysTime*1000L;
   return x;
 }
 
