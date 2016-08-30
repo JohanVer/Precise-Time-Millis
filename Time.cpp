@@ -160,7 +160,6 @@ resetTimer();
 #if  TIMERVAR==1
 ISR(TIMER1_COMPA_vect)          // timer compare interrupt service routine
 {
-  sei();
  if (Sourcevar == 1)
   TCNT1 = 0;
  else 
@@ -168,7 +167,6 @@ ISR(TIMER1_COMPA_vect)          // timer compare interrupt service routine
   timemillisoverflows++;
   TCNT1=0;
  } 
- cli();
 }
 #elif TIMERVAR==0
 ISR(TIMER0_OVF_vect)
