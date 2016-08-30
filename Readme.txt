@@ -12,18 +12,18 @@ It Adds a free to choose Interrupt to update Seconds from GPS-PPS or DS3231 1Hz 
 
 The Theory 1, GPS Based PPS Signal accuracy, long time compensated 30ns Drift
 The Theory 2, DS3231 TCXO, Temperature compensated Crystal, 1-3ppm Longtime Drift.
-The Theory 3, Millis aligned between two PPS Signals and synchronized with 32768hz or Internal Clock for same accuracy as Theory1/2.
+The Theory 3, Millis aligned between two PPS Signals and synchronized with 32768hz or internal clock for same accuracy as Theory1/2.
 
-3 Chooseable Timers to count Millis synced to PPS(PulsPerSecond).
-3 Chooseable Inputs to count Timers, T0,T1, internal Clock 
-(Arduino Reserved T0,choose with my T2 Millis Arduino Variant to switch Timer0 and Timer2 in Core)
-3 Chooseable Interrupts, ICP1,INT0,INT1, or own event with ResetTimer() Function for PPS 
+3 chooseable Timers to count Millis synced to PPS(PulsPerSecond).
+3 chooseable Inputs to count Timers, T0,T1, internal Clock 
+(Arduino Reserved T0,choose with my T2 Millis Arduino variant to switch Timer0 and Timer2 in Core)
+3 chooseable Interrupts, ICP1,INT0,INT1, or own event with ResetTimer() Function for PPS 
 
-Calibration Function to Calibrate Millis Factor to Precise Timing maybe 15.9599999 Crystal precision.
+Calibration function to calibrate Millis Factor to precise timing maybe 15.9599999 Crystal precision.
 
-So we can measure over hours in Millisecond Precision with Round about 32768Hz 1-2ppm.
+So we can measure over hours in Millisecond Precision with round about 32768Hz 1-2ppm.
 
-To Choose the Timer Edit Time.ccp Line to Timer Number:
+To choose the Timer edit Time.ccp Line to Timer number:
 Example Timer 1:
 ```#Define TIMERVAR 1```  
 Same to Reserve Pin D8 for ICP1:
