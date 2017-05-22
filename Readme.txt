@@ -40,7 +40,7 @@ Loop() Overwiew:
  Serial.println(precmillis());
  Serial.println( myprecmillis - mymillis - sync);
   
-Output: (Good Measurement, The Millis from Core Drifts 2-4ms/Second) The Real Delay(1000) maybe ca. 1060ms
+Output: (Good Measurement, The Millis from Core Drifts 2-4ms/Second) The Real Delay(1000) maybe ca. 1006ms
 New Calculation Frequency for PrecMillis()
 11993117
 14591
