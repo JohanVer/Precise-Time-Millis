@@ -241,7 +241,7 @@ if(Sourcevar==0)
 if (Timervar==1)		
 	millifracs= 1000.0f/(double)(precF_CPU/256);
 	else 
-	1000.0f/(double)(precF_CPU/256L);
+	millifracs= 1000.0f/(double)(precF_CPU/256L);
 }
 else
 {
